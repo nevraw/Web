@@ -20,7 +20,6 @@ function submitHandler() {
  });
 }
 
-}
 
 function loadOptions() {
  var $invertCheckbox = $('#invertCheckbox');
