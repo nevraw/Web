@@ -1,9 +1,9 @@
 (function() {
  loadOptions();
- submitHandler();
+ buttonHandler();
 })();
 
-function submitHandler() {
+function buttonHandler() {
  var $submitButton = $('#submitButton');
 
  $submitButton.on('click', function() {
@@ -13,6 +13,8 @@ function submitHandler() {
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
 
+ var $cancelButton = $('#cancelButton');
+
  $cancelButton.on('click', function() {
   console.log('Cancel');
  
@@ -20,6 +22,7 @@ function submitHandler() {
   document.location = return_to;
  });
 }
+
 
 function loadOptions() {
  var $timeColorPicker = $('#timeColorPicker');
