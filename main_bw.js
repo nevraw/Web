@@ -1,7 +1,7 @@
 (function() {
  loadOptions();
  submitHandler();
- cancelHandler();
+// cancelHandler();
 })();
 
 function submitHandler() {
