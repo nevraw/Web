@@ -1,6 +1,7 @@
 (function() {
  loadOptions();
  submitHandler();
+ cancelHandler();
 })();
 
 function submitHandler() {
@@ -12,6 +13,9 @@ function submitHandler() {
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
+
+ var $cancelButton = $('#cancelButton');
+
  $cancelButton.on('click', function() {
   console.log('Cancel');
  
