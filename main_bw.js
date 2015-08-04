@@ -12,6 +12,14 @@ function submitHandler() {
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
+ $cancelButton.on('click', function() {
+  console.log('Cancel');
+ 
+  var return_to = getQueryParam('return_to', 'pebblejs://close#');
+  document.location = return_to;
+ });
+}
+
 }
 
 function loadOptions() {
