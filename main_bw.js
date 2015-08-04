@@ -1,10 +1,9 @@
 (function() {
  loadOptions();
- submitHandler();
-// cancelHandler();
+ buttonHandler();
 })();
 
-function submitHandler() {
+function buttonHandler() {
  var $submitButton = $('#submitButton');
 
  $submitButton.on('click', function() {
