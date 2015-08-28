@@ -23,27 +23,58 @@ function buttonHandler() {
  });
 }
 
+// Radio control for time display
+var $digitalValue=1;
+$("input[name=digital]").change(function () {
+ $digitalValue = parseInt(this.value);
+});
+
+// Radio control for inverting colors
+var $invertValue=0;
+$("input[name=invert]").change(function () {
+ $presetValue = parseInt(this.value);
+});
+
 
 function loadOptions() {
- var $invertCheckbox = $('#invertCheckbox');
-
- if (localStorage.invert) {
-  $invertCheckbox[0].checked = localStorage.invert === 'true';
+if (localStorage.digital) {
+  $digitalValue = localStorage.digital;
+//  console.log('localStorage.digital: ' + $digitalValue);
+  // setting radio' value
+ } else {
+  $digitalValue = 1;
+//  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
  }
+ $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
+
+if (localStorage.invert) {
+  $invertValue = localStorage.invert;
+//  console.log('localStorage.invert: ' + $invertValue);
+  // setting radio' value
+ } else {
+  $invertValue = 0;
+//  console.log('localStorage.invert was undefined, now set to: ' + $invertValue);
+ }
+ $("input[name=invert][value='" + $invertValue + "']").attr('checked', 'checked');
+ 
 } 
  
  
  
 function getAndStoreConfigData() {
- var $invertCheckbox = $('#invertCheckbox');
+// console.log('digital value: ' + $digitalValue)
+// console.log('invert value: ' + $invertValue)
 
  var options = {
-  invert: $invertCheckbox[0].checked
+  digital: $digitalValue,
+  invert: $invertValue
  };
  
- localStorage.invert = options.invert;
- 
- console.log('Got options: ' + JSON.stringify(options));
+// console.log('Got options: ' + JSON.stringify(options));
+
+ localStorage.digital = $digitalValue;
+ localStorage.invert  = $invertValue;
+
  return options;
 }
 
