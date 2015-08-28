@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <title>Quadrant Settings</title>
+ <title>Duo Settings</title>
  <link rel='stylesheet' type='text/css' href='slate.min.css'>
  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
  <div class='item-container'>
-  <h1 class='title'>Quadrant Watchface<br>Configuration Page</h1>
+  <h1 class='title'>Duo Watchface<br>Configuration Page</h1>
  </div>
  
  <div class='item-container'>
@@ -19,13 +19,20 @@
   </div>
  </div>
 
- <div class='item-container'>
-  <div class='item-container-header'>Configurable items</div>
-  <div class='item-container-content'>
-   <label class='item'>
-    Invert colors
-    <input id='invertCheckbox' type='checkbox' class='item-checkbox'>
-   </label>
+
+ <div class="item-container">
+  <div class="item-container-header">Configurable items</div>
+  <div class="item-container-content">
+    <label class="item">
+     Time display
+     <input name="digital" value="1" type="radio" class='item-radio' checked>Digital
+     <input name="digital" value="0" type="radio" class='item-radio'>Analog
+    </label>
+    <label class="item">
+     Background color
+     <input name="invert" value="0" type="radio" class='item-radio' checked>Black
+     <input name="invert" value="1" type="radio" class='item-radio'>White
+    </label>
   </div>
   <div class='item-container-footer'>
    Settings only change on the watch after you click Submit.
