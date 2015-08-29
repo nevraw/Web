@@ -62,8 +62,8 @@ if (localStorage.invert) {
  
  
 function getAndStoreConfigData() {
- console.log('digital value: ' + $digitalValue)
- console.log('invert value: ' + $invertValue)
+ console.log('digital value: ' + $digitalValue);
+ console.log('invert value: ' + $invertValue);
 
  var options = {
   digital: $digitalValue,
