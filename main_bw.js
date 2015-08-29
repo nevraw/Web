@@ -24,13 +24,13 @@ function buttonHandler() {
 }
 
 // Radio control for time display
-var $digitalValue=1;
+var $digitalValue;
 $("input[name=digital]").change(function () {
  $digitalValue = parseInt(this.value);
 });
 
 // Radio control for inverting colors
-var $invertValue=0;
+var $invertValue;
 $("input[name=invert]").change(function () {
  $invertValue = parseInt(this.value);
 });
