@@ -39,21 +39,21 @@ $("input[name=invert]").change(function () {
 function loadOptions() {
 if (localStorage.digital) {
   $digitalValue = localStorage.digital;
-//  console.log('localStorage.digital: ' + $digitalValue);
+  console.log('localStorage.digital: ' + $digitalValue);
   // setting radio' value
  } else {
   $digitalValue = 1;
-//  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
+  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
  }
  $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
 
 if (localStorage.invert) {
   $invertValue = localStorage.invert;
-//  console.log('localStorage.invert: ' + $invertValue);
+  console.log('localStorage.invert: ' + $invertValue);
   // setting radio' value
  } else {
   $invertValue = 0;
-//  console.log('localStorage.invert was undefined, now set to: ' + $invertValue);
+  console.log('localStorage.invert was undefined, now set to: ' + $invertValue);
  }
  $("input[name=invert][value='" + $invertValue + "']").attr('checked', 'checked');
  
@@ -62,15 +62,15 @@ if (localStorage.invert) {
  
  
 function getAndStoreConfigData() {
-// console.log('digital value: ' + $digitalValue)
-// console.log('invert value: ' + $invertValue)
+ console.log('digital value: ' + $digitalValue)
+ console.log('invert value: ' + $invertValue)
 
  var options = {
   digital: $digitalValue,
   invert: $invertValue
  };
  
-// console.log('Got options: ' + JSON.stringify(options));
+ console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.digital = $digitalValue;
  localStorage.invert  = $invertValue;
