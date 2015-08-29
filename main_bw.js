@@ -32,7 +32,7 @@ $("input[name=digital]").change(function () {
 // Radio control for inverting colors
 var $invertValue=0;
 $("input[name=invert]").change(function () {
- $presetValue = parseInt(this.value);
+ $invertValue = parseInt(this.value);
 });
 
 
