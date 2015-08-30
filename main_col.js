@@ -7,7 +7,7 @@ function buttonHandler() {
  var $submitButton = $('#submitButton');
 
  $submitButton.on('click', function() {
-  console.log('Submit');
+//  console.log('Submit');
  
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
@@ -16,7 +16,7 @@ function buttonHandler() {
  var $cancelButton = $('#cancelButton');
 
  $cancelButton.on('click', function() {
-  console.log('Cancel');
+//  console.log('Cancel');
  
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to;
@@ -57,12 +57,11 @@ function getAndStoreConfigData() {
   numColor: $numColorPicker.val()
  };
  
- console.log('Got options: ' + JSON.stringify(options));
+// console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.digital = $digitalValue;
  localStorage.numColor = options.numColor;
 
- console.log('Got options: ' + JSON.stringify(options));
  return options;
 }
 
