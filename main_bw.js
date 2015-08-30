@@ -29,12 +29,6 @@ $("input[name=digital]").change(function () {
  $digitalValue = parseInt(this.value);
 });
 
-// Radio control for inverting colors
-var $invertValue;
-$("input[name=invert]").change(function () {
- $invertValue = parseInt(this.value);
-});
-
 var $dateValue;
 $("input[name=datemode]").change(function () {
  $datemodeValue = parseInt(this.value);
@@ -51,16 +45,12 @@ if (localStorage.digital) {
  }
  $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
 
-if (localStorage.invert) {
-  $invertValue = localStorage.invert;
-//  console.log('localStorage.invert: ' + $invertValue);
-  // setting radio' value
- } else {
-  $invertValue = 0;
-//  console.log('localStorage.invert was undefined, now set to: ' + $invertValue);
+ var $invertCheckbox = $('#invertCheckbox');
+
+ if (localStorage.invert) {
+  $invertCheckbox[0].checked = localStorage.invert === 'true';
  }
- $("input[name=invert][value='" + $invertValue + "']").attr('checked', 'checked');
- 
+
  if (localStorage.datemode) {
   $datemodeValue = localStorage.datemode;
 //  console.log('localStorage.datemode: ' + $datemodeValue);
@@ -77,16 +67,18 @@ function getAndStoreConfigData() {
 // console.log('digital value: ' + $digitalValue);
 // console.log('invert value: ' + $invertValue);
 
+ var $invertCheckbox = $('#invertCheckbox');
+
  var options = {
   digital: $digitalValue,
-  invert: $invertValue,
+  invert: $invertCheckbox[0].checked,
   datemode: $datemodeValue
  };
  
 // console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.digital = $digitalValue;
- localStorage.invert  = $invertValue;
+ localStorage.invert = options.invert;
  localStorage.datemode = $datemodeValue;
 
  return options;
