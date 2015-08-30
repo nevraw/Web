@@ -48,7 +48,7 @@ if (localStorage.digital) {
  var $invertCheckbox = $('#invertCheckbox');
 
  if (localStorage.invert) {
-  $invertCheckbox[0].checked = localStorage.invert === 1;
+  $invertCheckbox[0].checked = localStorage.invert === '1';
  }
 
  if (localStorage.datemode) {
