@@ -23,23 +23,44 @@ function buttonHandler() {
  });
 }
 
+// Radio control for time display
+var $digitalValue;
+$("input[name=digital]").change(function () {
+ $digitalValue = parseInt(this.value);
+});
 
 function loadOptions() {
- var $timeColorPicker = $('#timeColorPicker');
+ if (localStorage.digital) {
+  $digitalValue = localStorage.digital;
+//  console.log('localStorage.digital: ' + $digitalValue);
+  // setting radio' value
+ } else {
+  $digitalValue = 1;
+//  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
+ }
+ $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
 
- if (localStorage.timeColor) {
-  $timeColorPicker[0].value = localStorage.timeColor;
+ var $numColorPicker = $('#numColorPicker');
+
+ if (localStorage.numColor) {
+  $numColorPicker[0].value = localStorage.numColor;
  }
 } 
 
 function getAndStoreConfigData() {
- var $timeColorPicker = $('#timeColorPicker');
+ var $numColorPicker = $('#numColorPicker');
+
+// console.log('digital value: ' + $digitalValue);
 
  var options = {
-  timeColor: $timeColorPicker.val()
+  digital: $digitalValue,
+  numColor: $numColorPicker.val()
  };
  
- localStorage.timeColor = options.timeColor;
+ console.log('Got options: ' + JSON.stringify(options));
+
+ localStorage.digital = $digitalValue;
+ localStorage.numColor = options.numColor;
 
  console.log('Got options: ' + JSON.stringify(options));
  return options;
