@@ -65,20 +65,21 @@ if (localStorage.digital) {
  
 function getAndStoreConfigData() {
 // console.log('digital value: ' + $digitalValue);
-// console.log('invert value: ' + $invertValue);
 
  var $invertCheckbox = $('#invertCheckbox');
  var $invertValue = 0;
  if ($invertCheckbox[0].checked) {
    $invertValue = 1; 
  }
+ console.log('invert value: ' + $invertValue);
+ 
  var options = {
   digital: $digitalValue,
   invert: $invertValue,
   datemode: $datemodeValue
  };
  
-// console.log('Got options: ' + JSON.stringify(options));
+ console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.digital = $digitalValue;
  localStorage.invert = $invertValue;
