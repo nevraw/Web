@@ -32,11 +32,11 @@ $("input[name=digital]").change(function () {
 function loadOptions() {
  if (localStorage.digital) {
   $digitalValue = localStorage.digital;
-//  console.log('localStorage.digital: ' + $digitalValue);
+  console.log('localStorage.digital: ' + $digitalValue);
   // setting radio' value
  } else {
   $digitalValue = 1;
-//  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
+  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
  }
  $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
 
@@ -50,14 +50,14 @@ function loadOptions() {
 function getAndStoreConfigData() {
  var $numColorPicker = $('#numColorPicker');
 
-// console.log('digital value: ' + $digitalValue);
+ console.log('digital value: ' + $digitalValue);
 
  var options = {
   digital: $digitalValue,
   numColor: $numColorPicker.val()
  };
  
-// console.log('Got options: ' + JSON.stringify(options));
+ console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.digital = $digitalValue;
  localStorage.numColor = options.numColor;
