@@ -23,27 +23,7 @@ function buttonHandler() {
  });
 }
 
-// Radio control for time display
-var $digitalValue;
-$("input[name=digital]").change(function () {
- $digitalValue = parseInt(this.value);
-});
-
-var $dateValue;
-$("input[name=datemode]").change(function () {
- $datemodeValue = parseInt(this.value);
-});
-
 function loadOptions() {
- if (localStorage.digital) {
-  $digitalValue = localStorage.digital;
-//  console.log('localStorage.digital: ' + $digitalValue);
-  // setting radio' value
- } else {
-  $digitalValue = 1;
-//  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
- }
- $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
 
  var $numColorPicker = $('#numColorPicker');
 
@@ -51,34 +31,18 @@ function loadOptions() {
   $numColorPicker[0].value = localStorage.numColor;
  }
  
- if (localStorage.datemode) {
-  $datemodeValue = localStorage.datemode;
-//  console.log('localStorage.datemode: ' + $datemodeValue);
-  // setting radio' value
- } else {
-  $datemodeValue = 0;
-//  console.log('localStorage.datemode was undefined, now set to: ' + $datemodeValue);
- }
- $("input[name=datemode][value='" + $datemodeValue + "']").attr('checked', 'checked');
-
 } 
 
 function getAndStoreConfigData() {
  var $numColorPicker = $('#numColorPicker');
 
- console.log('digital value: ' + $digitalValue);
-
  var options = {
-  digital: $digitalValue,
-  numColor: $numColorPicker.val(),
-  datemode: $datemodeValue
+  numColor: $numColorPicker.val()
  };
  
  console.log('Got options: ' + JSON.stringify(options));
 
- localStorage.digital = $digitalValue;
  localStorage.numColor = options.numColor;
- localStorage.datemode = $datemodeValue;
 
  return options;
 }
