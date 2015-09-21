@@ -23,27 +23,8 @@ function buttonHandler() {
  });
 }
 
-// Radio control for time display
-var $digitalValue;
-$("input[name=digital]").change(function () {
- $digitalValue = parseInt(this.value);
-});
-
-var $dateValue;
-$("input[name=datemode]").change(function () {
- $datemodeValue = parseInt(this.value);
-});
 
 function loadOptions() {
-if (localStorage.digital) {
-  $digitalValue = localStorage.digital;
-//  console.log('localStorage.digital: ' + $digitalValue);
-  // setting radio' value
- } else {
-  $digitalValue = 1;
-//  console.log('localStorage.digital was undefined, now set to: ' + $digitalValue);
- }
- $("input[name=digital][value='" + $digitalValue + "']").attr('checked', 'checked');
 
  var $invertCheckbox = $('#invertCheckbox');
 
@@ -51,15 +32,6 @@ if (localStorage.digital) {
   $invertCheckbox[0].checked = localStorage.invert === '1';
  }
 
- if (localStorage.datemode) {
-  $datemodeValue = localStorage.datemode;
-//  console.log('localStorage.datemode: ' + $datemodeValue);
-  // setting radio' value
- } else {
-  $datemodeValue = 0;
-//  console.log('localStorage.datemode was undefined, now set to: ' + $datemodeValue);
- }
- $("input[name=datemode][value='" + $datemodeValue + "']").attr('checked', 'checked');
 } 
 
  
@@ -74,16 +46,12 @@ function getAndStoreConfigData() {
  console.log('invert value: ' + $invertValue);
  
  var options = {
-  digital: $digitalValue,
-  invert: $invertValue,
-  datemode: $datemodeValue
+  invert: $invertValue
  };
  
  console.log('Got options: ' + JSON.stringify(options));
 
- localStorage.digital = $digitalValue;
  localStorage.invert = $invertValue;
- localStorage.datemode = $datemodeValue;
 
  return options;
 }
