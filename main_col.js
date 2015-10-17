@@ -43,7 +43,7 @@ function getAndStoreConfigData() {
  var $minColorPicker = $('#minColorPicker');
 
  var options = {
-  hourColor: $hourColorPicker.val()
+  hourColor: $hourColorPicker.val(),
   minColor: $minColorPicker.val()
  };
  
