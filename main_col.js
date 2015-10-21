@@ -27,6 +27,7 @@ function loadOptions() {
 
  var $hourColorPicker = $('#hourColorPicker');
  var $minColorPicker = $('#minColorPicker');
+ var $pmColorPicker = $('#pmColorPicker');
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
@@ -36,21 +37,28 @@ function loadOptions() {
   $minColorPicker[0].value = localStorage.minColor;
  }
  
+ if (localStorage.pmColor) {
+  $pmColorPicker[0].value = localStorage.pmColor;
+ }
+ 
 } 
 
 function getAndStoreConfigData() {
  var $hourColorPicker = $('#hourColorPicker');
  var $minColorPicker = $('#minColorPicker');
+ var $pmColorPicker = $('#pmColorPicker');
 
  var options = {
   hourColor: $hourColorPicker.val(),
-  minColor: $minColorPicker.val()
+  minColor: $minColorPicker.val(),
+  pmColor: $pmColorPicker.val()
  };
  
  console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.hourColor = options.hourColor;
  localStorage.minColor = options.minColor;
+ localStorage.pmColor = options.pmColor;
 
  return options;
 }
