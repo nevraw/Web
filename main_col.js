@@ -24,24 +24,41 @@ function buttonHandler() {
 }
 
 function loadOptions() {
- var $timeColorPicker = $('#timeColorPicker');
 
- if (localStorage.timeColor) {
-  $timeColorPicker[0].value = localStorage.timeColor;
+ var $hourColorPicker = $('#hourColorPicker');
+ var $minColorPicker = $('#minColorPicker');
+ var $pmColorPicker = $('#pmColorPicker');
+
+ if (localStorage.hourColor) {
+  $hourColorPicker[0].value = localStorage.hourColor;
+ }
+ 
+ if (localStorage.minColor) {
+  $minColorPicker[0].value = localStorage.minColor;
+ }
+ 
+ if (localStorage.pmColor) {
+  $pmColorPicker[0].value = localStorage.pmColor;
  }
  
 } 
 
 function getAndStoreConfigData() {
- var $timeColorPicker = $('#timeColorPicker');
+ var $hourColorPicker = $('#hourColorPicker');
+ var $minColorPicker = $('#minColorPicker');
+ var $pmColorPicker = $('#pmColorPicker');
 
  var options = {
-  timeColor: $timeColorPicker.val()
+  hourColor: $hourColorPicker.val(),
+  minColor: $minColorPicker.val(),
+  pmColor: $pmColorPicker.val()
  };
  
  console.log('Got options: ' + JSON.stringify(options));
 
- localStorage.timeColor = options.timeColor;
+ localStorage.hourColor = options.hourColor;
+ localStorage.minColor = options.minColor;
+ localStorage.pmColor = options.pmColor;
 
  return options;
 }
